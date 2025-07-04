@@ -1,5 +1,4 @@
 # src/utils/whatsapp_client.py
-import requests
 
 # Este é um client SIMULADO de WhatsApp.
 # Em um projeto real, você usaria uma API como Twilio for WhatsApp,

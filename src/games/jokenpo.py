@@ -31,4 +31,4 @@ if __name__ == '__main__':
     print(play_jokenpo("pedra"))
     print(play_jokenpo("papel"))
     print(play_jokenpo("tesoura"))
-    print(play_jokenpo("banana")) # Teste de entrada inválida
+    print(play_jokenpo("faca")) # Teste de entrada inválida

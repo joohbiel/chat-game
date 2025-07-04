@@ -1,19 +1,155 @@
-# chat-game
-A turma Educafro Tech vai fazer um chatbot de game para whatsapp
+# Chat Game - Chatbot de Jogos para WhatsApp
 
-## Estrutura de pastas/arquivos
-chatbot_jogos/
+Um chatbot desenvolvido pela turma Educafro Tech que oferece jogos interativos via WhatsApp.
+
+## 🎮 Jogos Disponíveis
+
+1. **Jokenpô (Pedra, Papel, Tesoura)** - Jogue contra o bot
+2. **Forca** - Adivinhe a palavra letra por letra
+3. **Adivinhação** - Descubra o número secreto entre 1 e 100
+
+## 📁 Estrutura do Projeto
+
+```
+chat-game/
 ├── src/
 │   ├── games/
+│   │   ├── __init__.py
 │   │   ├── jokenpo.py          # Lógica do jogo Jokenpô
 │   │   ├── forca.py            # Lógica do jogo da Forca
-│   │   ├── adivinhacao.py      # Lógica do jogo da Adivinhação
-│   │   └── init.py         # Torna 'games' um pacote Python
+│   │   └── adivinhacao.py      # Lógica do jogo da Adivinhação
 │   ├── utils/
 │   │   └── whatsapp_client.py  # Cliente SIMULADO para envio de mensagens WhatsApp
-│   └── main.py                 # Ponto de entrada da aplicação Flask e lógica principal do chatbot
-├── README.md                   # Este arquivo
+│   └── main.py                 # Aplicação Flask e lógica principal do chatbot
+├── test_webhook.py             # Script para testar o webhook localmente
 ├── requirements.txt            # Dependências do projeto
+├── README.md                   # Este arquivo
+└── LICENSE                     # Licença do projeto
+```
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+- Python 3.7+
+- pip
+
+### Instalação
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/seu-usuario/chat-game.git
+cd chat-game
+```
+
+2. Crie um ambiente virtual:
+```bash
+python -m venv venv
+source venv/bin/activate  # No Windows: venv\Scripts\activate
+```
+
+3. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+### Executando o Projeto
+
+1. Inicie o servidor Flask:
+```bash
+python src/main.py
+```
+
+2. O servidor estará rodando em `http://127.0.0.1:5000`
+
+3. Para testar os jogos, execute o script de teste:
+```bash
+python test_webhook.py
+```
+
+## 🌐 Endpoints da API
+
+### GET /
+- Retorna uma mensagem de boas-vindas
+
+### POST /webhook
+- Processa mensagens do WhatsApp
+- Corpo da requisição:
+```json
+{
+    "from": "5511999999999",
+    "text": "oi"
+}
+```
+
+## 🎯 Como Usar o Chatbot
+
+1. Envie "oi" ou "menu" para ver os jogos disponíveis
+2. Escolha um jogo digitando o número (1, 2, ou 3) ou o nome do jogo
+3. Siga as instruções para cada jogo
+4. Digite "menu" a qualquer momento para voltar ao menu principal
+
+### Comandos dos Jogos
+
+**Jokenpô:**
+- Digite: "pedra", "papel" ou "tesoura"
+
+**Forca:**
+- Digite uma letra por vez para adivinhar a palavra
+
+**Adivinhação:**
+- Digite um número entre 1 e 100 para tentar acertar
+
+## 🔧 Integração com WhatsApp Real
+
+Este projeto usa um cliente simulado de WhatsApp. Para integração real, você pode usar:
+
+- **Twilio API for WhatsApp**
+- **WhatsApp Business API oficial**
+- **Bibliotecas como pywhatkit** (para automação via WhatsApp Web)
+
+Exemplo de configuração com pywhatkit está comentado no arquivo `whatsapp_client.py`.
+
+## 🧪 Testes
+
+Execute o script de teste para verificar se todos os jogos estão funcionando:
+
+```bash
+python test_webhook.py
+```
+
+Este script testa:
+- Menu principal
+- Jogo Jokenpô
+- Jogo da Forca
+- Jogo de Adivinhação
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Python 3.11+**
+- **Flask** - Framework web
+- **Requests** - Para requisições HTTP (nos testes)
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+
+1. Fazer um fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/nova-feature`)
+3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
+4. Push para a branch (`git push origin feature/nova-feature`)
+5. Abrir um Pull Request
+
+## 📞 Contato
+
+Projeto desenvolvido pela turma **Educafro Tech**.
+
+---
+
+⭐ Se este projeto te ajudou, considere dar uma estrela no repositório!
 
 
 
@@ -117,6 +253,7 @@ Envie requisições **POST** para o **URL do Ngrok** (o que você obteve no pass
     "text": "Sua Mensagem Aqui"
 }
 ```
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://globalcards-inmetrics.postman.co/collection/9485476-ebed8ec1-252a-42ad-a13d-1b21f4ab9438?source=rip_markdown)
 
 ---
 
